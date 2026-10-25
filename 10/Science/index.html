@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="si" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 ශ්‍රේණිය විද්‍යාව - කෙටි සටහන්, රූප සටහන් හා ක්‍රියාකාරකම් සිමියුලේෂන් (සියලුම පාඩම් 20)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=7" />
+</head>
+<body>
+  <!-- Top Sticky Header -->
+  <header class="top-header">
+    <div class="header-main-row">
+      <div class="brand">
+        <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="පාඩම් මාලාව විවෘත කරන්න" title="පාඩම් මාලාව">
+          ☰
+        </button>
+        <div class="brand-logo">🔬</div>
+        <div class="brand-title">
+          <h1>10 ශ්‍රේණිය විද්‍යාව</h1>
+          <p>පෙළපොතේ සියලුම පාඩම් 20, රූප සටහන් හා ක්‍රියාකාරකම් සිමියුලේෂන්</p>
+        </div>
+      </div>
+
+      <!-- Desktop Search Bar -->
+      <div class="search-box desktop-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="පාඩම්, සූත්‍ර හෝ කරුණු සොයන්න (උදා: එන්සයිම, නිව්ටන්, මවුලය, ඕම්)..." autocomplete="off" />
+        <button class="search-clear-btn" id="clearSearchBtn" title="මකන්න" aria-label="සෙවුම මකන්න">✕</button>
+      </div>
+
+      <!-- Desktop Mode Tabs & Theme Button -->
+      <div class="header-right-tools">
+        <div class="mode-tabs desktop-mode-tabs">
+          <button class="mode-btn active" data-mode="notes">📖 සටහන්</button>
+          <button class="mode-btn" data-mode="simulations">🧪 සිමියුලේෂන්</button>
+          <button class="mode-btn" data-mode="flashcards">🗂️ කාඩ්පත්</button>
+          <button class="mode-btn" data-mode="gallery">🖼️ රූප සටහන්</button>
+          <button class="mode-btn" data-mode="quiz">🏆 ප්‍රශ්න</button>
+        </div>
+        <button class="icon-btn" id="themeToggleBtn" title="අඳුරු / ආලෝක තේමාව" aria-label="තේමාව මාරු කරන්න">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Dedicated Search Bar Row -->
+    <div class="mobile-search-row">
+      <div class="search-box mobile-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="mobileSearchInput" placeholder="පාඩම්, සූත්‍ර හෝ කරුණු සොයන්න..." autocomplete="off" />
+        <button class="search-clear-btn" id="clearMobileSearchBtn" title="මකන්න" aria-label="සෙවුම මකන්න">✕</button>
+      </div>
+    </div>
+
+    <!-- Mobile Dedicated Mode Navigation Strip -->
+    <div class="mobile-tabs-row">
+      <div class="mode-tabs mobile-mode-tabs">
+        <button class="mode-btn active" data-mode="notes">📖 සටහන්</button>
+        <button class="mode-btn" data-mode="simulations">🧪 සිමියුලේෂන්</button>
+        <button class="mode-btn" data-mode="flashcards">🗂️ කාඩ්පත්</button>
+        <button class="mode-btn" data-mode="gallery">🖼️ රූප</button>
+        <button class="mode-btn" data-mode="quiz">🏆 ප්‍රශ්න</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main Layout -->
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-top-mobile">
+        <span class="sidebar-title">📚 පාඩම් මාලාව (1 - 20)</span>
+        <button class="sidebar-close-btn" id="closeSidebarBtn" aria-label="වසන්න">✕</button>
+      </div>
+      <div class="progress-card">
+        <div class="progress-header">
+          <span>📊 ඉගෙනුම් ප්‍රගතිය</span>
+          <span id="progressText">0 / 20 පාඩම් (0%)</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Subject / Part Filter Pills -->
+      <div class="sidebar-filter-group" id="sidebarFilters">
+        <button class="filter-chip active" data-filter="all">සියල්ල (20)</button>
+        <button class="filter-chip" data-filter="part1">I කොටස (1-12)</button>
+        <button class="filter-chip" data-filter="part2">II කොටස (13-20)</button>
+        <button class="filter-chip" data-filter="bio">🌿 ජීව විද්‍යාව</button>
+        <button class="filter-chip" data-filter="chem">⚗️ රසායන</button>
+        <button class="filter-chip" data-filter="phys">⚡ භෞතික</button>
+      </div>
+
+      <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); padding: 0 0.35rem;">
+        📚 පෙළපොතේ පාඩම් මාලාව (1 - 20)
+      </div>
+
+      <nav class="lesson-nav-list" id="lessonNavList"></nav>
+    </aside>
+
+    <!-- Dynamic Main Area -->
+    <main class="main-content" id="mainContent"></main>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox" id="lightboxModal">
+    <div class="lightbox-inner">
+      <img src="" alt="විශාල කළ රූපය" id="lightboxImg" />
+      <div class="lightbox-bar">
+        <span id="lightboxCaption" style="font-size: 0.92rem; font-weight: 600;"></span>
+        <button class="nav-step-btn" id="closeLightboxBtn">✕ වසන්න</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Mobile Quick Action Pill -->
+  <aside class="mobile-quick-actions" aria-label="ජංගම මෙනු ක්‍රියාමාර්ග">
+    <button class="quick-pill-btn" id="mobileLessonPillBtn">
+      <span>🔬</span>
+      <span id="mobilePillLessonName">පාඩම 01</span>
+    </button>
+    <button class="quick-top-btn" id="backToTopBtn" title="ඉහළට යන්න" aria-label="පිටුවේ ඉහළට">
+      ▲
+    </button>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="diagrams.js?v=7"></script>
+  <script src="data_part1.js?v=7"></script>
+  <script src="data_part2.js?v=7"></script>
+  <script src="data_part3.js?v=7"></script>
+  <script src="simulations.js?v=7"></script>
+  <script src="app.js?v=7"></script>
+</body>
+</html>

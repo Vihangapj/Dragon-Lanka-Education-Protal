@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="si" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragon Lanka Education</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for Sinhala & Latin Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sinhala: ['"Noto Sans Sinhala"', '"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Sinhala"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+            },
+            dragon: {
+              coral: '#f43f5e',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              violet: '#8b5cf6',
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(2, 132, 199, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            'card-hover': '0 20px 35px -10px rgba(2, 132, 199, 0.16), 0 8px 12px -4px rgba(0, 0, 0, 0.04)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans Sinhala', 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 15% 15%, rgba(224, 242, 254, 0.6) 0%, transparent 40%),
+                  radial-gradient(circle at 85% 25%, rgba(254, 243, 199, 0.5) 0%, transparent 40%),
+                  radial-gradient(circle at 50% 80%, rgba(236, 253, 245, 0.6) 0%, transparent 50%),
+                  #f8fafc;
+      min-height: 100vh;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .badge-glow {
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col justify-between min-h-screen">
+
+  <!-- Floating Navigation Bar -->
+  <header class="sticky top-4 z-50 px-4 max-w-6xl mx-auto w-full">
+    <nav class="glass-card rounded-2xl shadow-soft px-5 py-3.5 flex items-center justify-between border border-white/60">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-500 via-cyan-400 to-emerald-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+          <!-- Stylized Dragon / Crest SVG Icon -->
+          <svg class="w-6 h-6 transform group-hover:rotate-6 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-sky-700 via-cyan-700 to-teal-700 bg-clip-text text-transparent">
+              Dragon Lanka
+            </span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 font-semibold tracking-wide border border-sky-200">
+              EDU
+            </span>
+          </div>
+          <p class="text-[11px] font-medium text-slate-500 -mt-0.5">ඩ්‍රැගන් ලංකා අධ්‍යාපන පියස</p>
+        </div>
+      </a>
+
+      <!-- Quick Nav Badges -->
+      <div class="hidden sm:flex items-center gap-3 text-sm font-medium">
+        <a href="#grade-10" class="px-4 py-2 rounded-xl text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors">
+          10 ශ්‍රේණිය
+        </a>
+        <a href="#features" class="px-4 py-2 rounded-xl text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors">
+          විශේෂාංග
+        </a>
+        <a href="#author" class="px-4 py-2 rounded-xl text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors">
+          නිර්මාණකරු
+        </a>
+      </div>
+
+      <!-- Action Button / Search Pill -->
+      <a href="#grade-10" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-medium text-sm shadow-sm hover:shadow-md hover:from-sky-500 hover:to-cyan-500 transition-all duration-300">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span>පාඩම් වෙතට</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow max-w-6xl mx-auto px-4 py-8 sm:py-14 w-full">
+    
+    <!-- Hero Header Section -->
+    <section class="text-center max-w-3xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-sky-100 shadow-sm text-xs font-semibold text-sky-700 mb-5">
+        <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        ශ්‍රී ලංකාවේ ප්‍රමුඛතම ඩිජිටල් ඉගෙනුම් ද්වාරය
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-800 leading-tight mb-4 tracking-tight">
+        නවීන තාක්ෂණයෙන් සන්නද්ධ <br class="hidden sm:inline">
+        <span class="bg-gradient-to-r from-sky-600 via-teal-600 to-indigo-600 bg-clip-text text-transparent">
+          Dragon Lanka Education
+        </span> Protal
+      </h1>
+      
+      <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        පාසල් විෂය නිර්දේශයට අනුකූලව උසස් දැනුමක්, විෂය සටහන් සහ අභ්‍යාස නොමිලේ ලබා ගැනීමට සිසුන් වෙනුවෙන්ම වෙන්වූ නිල ද්වාරය.
+      </p>
+    </section>
+
+    <!-- SECTION: Grade 10 (10 ශ්‍රේණිය) -->
+    <section id="grade-10" class="mb-20 scroll-mt-28">
+      
+      <!-- Section Title Header -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white shadow-soft relative overflow-hidden">
+        
+        <!-- Background Ambient Accent Blob -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-6">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-3 py-1 rounded-lg bg-sky-500 text-white font-bold text-xs uppercase tracking-wider">
+                Official Syllabus
+              </span>
+              <span class="text-slate-400 font-medium text-xs">• O/L Foundation</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight flex items-center gap-2.5">
+              <span>10 ශ්‍රේණිය (Grade 10)</span>
+            </h2>
+            <p class="text-slate-500 text-sm mt-1">
+              අ.පො.ස. සාමාන්‍ය පෙළ විභාගය ජය ගැනීමට අවශ්‍ය මූලික විෂය ඒකක හා ප්‍රශ්න පත්‍ර
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl w-fit">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            විෂය නිර්දේශය යාවත්කාලීනයි
+          </div>
+        </div>
+
+        <!-- Grade 10 Subject Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+          
+          <!-- Subject 1: History (ඉතිහාසය) -->
+          <div class="group relative rounded-2xl p-6 sm:p-8 bg-gradient-to-b from-white to-amber-50/40 border border-amber-100/90 shadow-sm hover:shadow-card-hover hover:border-amber-300 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+                  <!-- Ancient Pillar / Scroll / History Icon -->
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="9" y1="7" x2="16" y2="7"></line>
+                    <line x1="9" y1="11" x2="16" y2="11"></line>
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-200">
+                  ඉතිහාසය
+                </span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2 group-hover:text-amber-700 transition-colors">
+                ඉතිහාසය (History)
+              </h3>
+              
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                ශ්‍රී ලංකා හා ලෝක ඉතිහාසයේ වැදගත් සිදුවීම්, සිතියම් සලකුණු කිරීම්, මූලාශ්‍ර අධ්‍යයනය හා සවිස්තරාත්මක කෙටි සටහන් සියල්ල මෙතැනින් ලබා ගන්න.
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">📜 ලංකා ඉතිහාසය</span>
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">🗺️ සිතියම් අභ්‍යාස</span>
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">🏛️ පුරාවිද්‍යා මූලාශ්‍ර</span>
+              </div>
+            </div>
+
+            <!-- Action Button Linked to 10/History/index.html -->
+            <a href="10/History/index.html" class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200">
+              <span>ඉතිහාසය පාඩම් මාලාවට පිවිසෙන්න</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Subject 2: Science (විද්‍යාව) -->
+          <div class="group relative rounded-2xl p-6 sm:p-8 bg-gradient-to-b from-white to-sky-50/40 border border-sky-100/90 shadow-sm hover:shadow-card-hover hover:border-sky-300 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500 to-teal-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+                  <!-- Atom / Science Flask Icon -->
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-full border border-sky-200">
+                  විද්‍යාව
+                </span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2 group-hover:text-sky-700 transition-colors">
+                විද්‍යාව (Science)
+              </h3>
+              
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                ජීව විද්‍යාව, භෞතික විද්‍යාව සහ රසායන විද්‍යාව විෂය ක්ෂේත්‍රයන්හි පරීක්ෂණ, ප්‍රායෝගික ක්‍රියාකාරකම් හා පැහැදිලි සිද්ධාන්ත පැහැදිලි කිරීම්.
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">🧬 ජීව විද්‍යාව</span>
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">⚡ භෞතික විද්‍යාව</span>
+                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">🧪 රසායන විද්‍යාව</span>
+              </div>
+            </div>
+
+            <!-- Action Button Linked to 10/Science/index.html -->
+            <a href="10/Science/index.html" class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200">
+              <span>විද්‍යාව පාඩම් මාලාවට පිවිසෙන්න</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Learning Highlights Section -->
+    <section id="features" class="mb-16">
+      <div class="text-center mb-8">
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-800">අමතර අධ්‍යාපනික පහසුකම්</h3>
+        <p class="text-slate-500 text-sm mt-1">ඔබගේ විභාග ජයග්‍රහණය පහසු කරවන සුවිශේෂී අංග</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        
+        <div class="glass-card p-5 rounded-2xl border border-white shadow-soft hover:-translate-y-1 transition duration-200">
+          <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-700 flex items-center justify-center font-bold mb-3">
+            01
+          </div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">කෙටි සටහන් (Short Notes)</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            විභාගයට පෙර ඉක්මනින් මතක් කර ගැනීමට හැකි වන පරිදි පිළියෙල කරන ලද සංක්ෂිප්ත සටහන්.
+          </p>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl border border-white shadow-soft hover:-translate-y-1 transition duration-200">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-3">
+            02
+          </div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">පසුගිය විභාග ප්‍රශ්න පත්‍ර</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            පසුගිය වසරවල ප්‍රශ්න පත්‍ර හා ආදර්ශ පිළිතුරු පත්‍ර බාගත කර පරිශීලනය කිරීමේ අවස්ථාව.
+          </p>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl border border-white shadow-soft hover:-translate-y-1 transition duration-200">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold mb-3">
+            03
+          </div>
+          <h4 class="font-bold text-slate-800 text-base mb-1">ස්වයං ඇගයීම් අභ්‍යාස</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            ඔබේ දැනුම පරීක්ෂා කර ගැනීමට හැකි මාර්ගගත බහුවරණ (MCQ) හා ව්‍යුහගත ප්‍රශ්නාවලි.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Motivational Sinhala Quote Banner -->
+    <section class="glass-card rounded-2xl p-6 sm:p-8 text-center max-w-2xl mx-auto border border-sky-100/80 mb-8 shadow-soft">
+      <svg class="w-8 h-8 mx-auto text-sky-400 mb-2 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+      </svg>
+      <p class="text-slate-700 font-medium text-sm sm:text-base italic mb-2">
+        "අධ්‍යාපනය යනු ලෝකය වෙනස් කිරීමට ඔබට භාවිතා කළ හැකි වඩාත්ම බලවත් අවියයි."
+      </p>
+      <span class="text-xs text-slate-400 font-semibold">— නෙල්සන් මැන්ඩෙලා</span>
+    </section>
+
+  </main>
+
+  <!-- High-End Light Themed Footer -->
+  <footer id="author" class="bg-white/80 backdrop-blur-md border-t border-slate-200/80 mt-12 py-8 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Creator Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-50 via-teal-50 to-emerald-50 border border-sky-200/60 shadow-sm mb-4">
+        <span class="text-rose-500 text-sm">❤️</span>
+        <span class="text-xs sm:text-sm font-semibold text-slate-700">
+          Made with pride by <span class="text-sky-700 font-bold">Vihanga Pahasara Jayasundara</span>
+        </span>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-2">
+        නිර්මාණය: <strong class="text-slate-700 font-medium">විහඟ පැහැසර ජයසුන්දර</strong> | Dragon Lanka Education
+      </p>
+
+      <p class="text-[11px] text-slate-400">
+        © 2026 Dragon Lanka Education. සියලුම හිමිකම් ඇවිරිණි. Designed for Sri Lankan Students.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
